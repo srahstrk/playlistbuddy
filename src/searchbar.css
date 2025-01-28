@@ -1,4 +1,43 @@
-.searchbar {
+.searchbarWrapper {
     text-align: center;
-    padding: 40px;
+    padding: 100px 40px;
+    border: 1px solid black;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+}
+
+.searchbar, .searchbutton {
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.searchbar {
+    width: 20vw;
+}
+
+.searchbutton {
+    margin-left: -1px;
+    background-color: #93CEFF;
+    text-transform: uppercase;
+    transition: ease-out 0.5s
+}
+
+.searchbutton:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) { 
+    .searchbarWrapper {
+        width: 80vw;
+    }
+    .searchbar {
+        width: 40vw;
+    }
+    
+     
 }

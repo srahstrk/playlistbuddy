@@ -7,6 +7,7 @@ const Searchresult = ({ tracks, onAdd, onRemove, isRemoval }) => {
 
   return (
     <div>
+      <h2>Search Results</h2>
       {tracks.map((track) => (
         <Track 
         track={track}  

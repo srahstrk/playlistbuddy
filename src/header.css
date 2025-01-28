@@ -1,10 +1,15 @@
+@font-face {
+    font-family: 'Knewave';
+    src: url('../public/Knewave-Regular.ttf')
+}
+
 .header {
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2F2F2F;
-    color: #ffffff;
-    font-size: 32px;
+    color: #2F2F2F;
+    font-size: 52px;
+    font-family: 'Knewave';
     padding: 30px 0;
 }

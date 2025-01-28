@@ -1,5 +1,6 @@
 import Tracklist from './Tracklist';
 import React, { useState } from "react";
+import '../track.css'
 
 function Playlist( { playlistName, playlistTracks, onNameChange, onRemove, onAdd, onSave } ) {
 
@@ -9,14 +10,15 @@ function Playlist( { playlistName, playlistTracks, onNameChange, onRemove, onAdd
     
 
       return (
-        <div>
+        <div className='your-playlist'>
+          <h2>Create your Playlist</h2>
           <input
             type="text"
             value={playlistName}
             onChange={handleNameChange}
           />
           <Tracklist tracks={playlistTracks} onRemove={onRemove} isRemoval={true} onAdd={onAdd} />
-          <button onClick={onSave}>Save To Spotify</button>
+          <button onClick={onSave} className='save'>Save To Spotify</button>
         </div>
     )
 }

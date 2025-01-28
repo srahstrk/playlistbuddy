@@ -14,8 +14,8 @@ function App() {
 const [searchResults, setSearchResults] = useState([]);
 const [playlistName, setPlaylistName] = useState('New Playlist'); 
 const [playlistTracks, setPlaylistTracks] = useState([]); 
-const clientId = "1840d8c49ff1481c8748e3e4188f320f"; 
-const clientSecret = "c81dfd43be3746b894a59a9956a1247e"; 
+const clientId = process.env.REACT_APP_CLIENT_ID;
+const clientSecret = process.env.REACT_APP_CLIENT_SECRET; 
 const [trackUris, setTrackUris] = useState([]);
 
 
@@ -91,10 +91,10 @@ const removeTrack = (track) => {
   return (
     <div>
       <Header/>
-      <div>
+        <div>
       <Searchbar onSearch={handleSearch} />
     </div>
-      <div className='wrapper'>
+      <div className='playlist-wrapper'>
       <Searchresult tracks={searchResults} onAdd={addTrack}/>
       <Playlist
         playlistName={playlistName}
@@ -105,7 +105,7 @@ const removeTrack = (track) => {
         onSave={savePlaylist}
       />
       </div>
-    </div>
+      </div>
   );
 }
 

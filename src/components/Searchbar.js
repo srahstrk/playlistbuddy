@@ -13,15 +13,16 @@ const Searchbar = ({ onSearch }) => {
       };
 
     return (
-        <div className='searchbar'>
-        <h2>Let's start! Just search your favourite song and start adding it to your playlist.</h2> 
+        <div className='searchbarWrapper'>
+        <h2>Just search your favourite song, log into Spotify and start adding it to your playlist.</h2> 
         <input
         type="text"
         placeholder="Search for a song..."
         value={inputValue}
         onChange={handleInputChange}
+        className='searchbar'
       />
-      <button onClick={handleSearch}>Search</button>  
+      <button onClick={handleSearch} className='searchbutton'>Search</button>  
         </div>
     )
 }

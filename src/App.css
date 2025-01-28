@@ -1,7 +1,19 @@
-.wrapper {
+
+.playlist-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: start;
-  width: 70vw;
+  width: 682px;
   margin: auto;
+  word-wrap: break-word;
+}
+
+
+@media only screen and (max-width: 600px) { 
+    .playlist-wrapper {
+      width: 90vw;
+      flex-direction: column;
+      align-items: center;
+    }
+     
 }

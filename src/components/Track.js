@@ -1,3 +1,5 @@
+import '../track.css'
+
 const Track = ({ track, name, artist, album, onAdd, onRemove, isRemoval }) => {
     const handleAdd = () => {
         if (onAdd) {
@@ -11,15 +13,18 @@ const Track = ({ track, name, artist, album, onAdd, onRemove, isRemoval }) => {
         }
       };
     return (
-      <div>
+      <div className='tracklist'>
+                
+         <div className='add-remove-buttons'>
+         {isRemoval ? (
+          <button onClick={handleRemove} className='add-remove'>X</button>
+        ) : (
+          <button onClick={handleAdd} className='add-remove'>+</button>
+        )}
+         </div> 
         <h3>{name}</h3>
         <p>{artist}</p>
-            <p>{album}</p>
-        {isRemoval ? (
-          <button onClick={handleRemove}>Remove</button>
-        ) : (
-          <button onClick={handleAdd}>Add</button>
-        )}
+            <p lassName='album'> {album}</p>
       </div>
     );
   };
