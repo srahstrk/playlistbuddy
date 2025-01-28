@@ -1,7 +1,7 @@
 const Spotify = {
     accessToken: null,
     clientId: process.env.REACT_APP_CLIENT_ID,
-    redirectUri: 'https://unrivaled-figolla-2936fd.netlify.app/',
+    redirectUri: 'https://unrivaled-figolla-2936fd.netlify.app',
   
     getAccessToken() {
       if (this.accessToken) {
@@ -46,7 +46,7 @@ const Spotify = {
           method: "POST",
           body: JSON.stringify({
             name: playlistName,
-            description: "Custom playlist from Jammming",
+            description: "Custom playlist from PlaylistBuddy",
           }),
         }
       );
