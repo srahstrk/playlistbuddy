@@ -23,9 +23,9 @@ const Spotify = {
     }
   },
 
-  async savePlaylist(playlistName, trackUris, onSuccess) {
+  async savePlaylist(playlistName, trackUris) {
     if (!playlistName || !trackUris.length) {
-      return;
+      return false; // No playlist name or tracks
     }
 
     const accessToken = Spotify.getAccessToken();
@@ -41,9 +41,13 @@ const Spotify = {
         {
           headers,
           method: "POST",
-          body: JSON.stringify({ name: playlistName, description: "Custom playlist from PlaylistBuddy" }),
+          body: JSON.stringify({
+            name: playlistName,
+            description: "Custom playlist from PlaylistBuddy",
+          }),
         }
       );
+
       const playlistData = await createPlaylistResponse.json();
       const playlistId = playlistData.id;
 
@@ -53,12 +57,10 @@ const Spotify = {
         body: JSON.stringify({ uris: trackUris }),
       });
 
-      // Call success function
-      if (onSuccess) {
-        onSuccess("Playlist saved successfully!");
-      }
+      return true;
     } catch (error) {
       console.error("Error saving playlist:", error);
+      return false; 
     }
   },
 };

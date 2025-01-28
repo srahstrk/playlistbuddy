@@ -15,7 +15,7 @@ const [searchResults, setSearchResults] = useState([]);
 const [playlistName, setPlaylistName] = useState('New Playlist'); 
 const [playlistTracks, setPlaylistTracks] = useState([]); 
 const [trackUris, setTrackUris] = useState([]);
-
+const [successMessage, setSuccessMessage] = useState("");
 
 const handleSearch = (query) => {
   setSearchQuery(query);
@@ -66,6 +66,7 @@ const removeTrack = (track) => {
   const clearPlaylist = () => {
     setPlaylistTracks([]);
     setTrackUris([]);
+    setSuccessMessage("")
   };
 
   const savePlaylist = () => {
@@ -77,10 +78,14 @@ const removeTrack = (track) => {
     Spotify.savePlaylist(playlistName, trackUris)
       .then(() => {
         console.log("Playlist saved successfully!");
-        clearPlaylist(); // Clear the playlist after saving
+        setSuccessMessage("✅ Playlist saved successfully!");
+        setTimeout(() => {
+          clearPlaylist();
+        }, 2000);
       })
       .catch((error) => {
         console.error("Error saving playlist:", error);
+        setSuccessMessage("❌ Failed to save playlist. Try again.");
       });
   };
 
@@ -101,6 +106,7 @@ const removeTrack = (track) => {
         onRemove={removeTrack}
         trackUris={trackUris}
         onSave={savePlaylist}
+        successMessage={successMessage}
       />
       </div>
       </div>
