@@ -1,2 +1,2 @@
-# jammming
+# playlistbuddy
 Hey :)
