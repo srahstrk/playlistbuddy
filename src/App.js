@@ -14,8 +14,6 @@ function App() {
 const [searchResults, setSearchResults] = useState([]);
 const [playlistName, setPlaylistName] = useState('New Playlist'); 
 const [playlistTracks, setPlaylistTracks] = useState([]); 
-const clientId = process.env.REACT_APP_CLIENT_ID;
-const clientSecret = process.env.REACT_APP_CLIENT_SECRET; 
 const [trackUris, setTrackUris] = useState([]);
 
 
@@ -51,7 +49,7 @@ const removeTrack = (track) => {
 
       try {
         // Step 1: Get Spotify API Token
-        const token = await getSpotifyToken(clientId, clientSecret);
+        const token = await getSpotifyToken(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_CLIENT_SECRET);
         // Step 2: Fetch data from Spotify API
         const fetchedSearchData = await fetchSpotifyData(`/search?q=${searchQuery}&type=track`, token);
         const tracks = fetchedSearchData.tracks?.items || [];
