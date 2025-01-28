@@ -18,6 +18,7 @@ function Playlist( { playlistName, playlistTracks, onNameChange, onRemove, onAdd
           />
           <Tracklist tracks={playlistTracks} onRemove={onRemove} isRemoval={true} onAdd={onAdd} />
           <button onClick={onSave} className='save'>Save To Spotify</button>
+          {successMessage && <p style={{ color: "#93CEFF" }}>{successMessage}</p>}
         </div>
     )
 }
