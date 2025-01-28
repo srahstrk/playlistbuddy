@@ -1,7 +1,7 @@
 const Spotify = {
     accessToken: null,
     clientId: process.env.REACT_APP_CLIENT_ID,
-    redirectUri: 'http://localhost:3000',
+    redirectUri: 'https://unrivaled-figolla-2936fd.netlify.app/',
   
     getAccessToken() {
       if (this.accessToken) {
